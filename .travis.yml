@@ -22,7 +22,6 @@ env:
     -
     - BIN=phantomjs
     - ISTANBUL=true
-    - SAUCE_LABS=true
 
 matrix:
   include:
