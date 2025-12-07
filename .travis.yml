@@ -132,3 +132,15 @@ script:
         $BIN ./test/saucelabs.js name="backbone tests"   runner="test/backbone.html?build=../dist/lodash.core.js"            tags=development,backbone
         $BIN ./test/saucelabs.js name="backbone tests"   runner="test/backbone.html?build=../dist/lodash.core.min.js"        tags=production,backbone
       fi
+
+  # Pack the package.
+  - npm pack
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  file_glob: true
+  file: "lodash-*.tgz"
+  on:
+    tags: true
+    branch: main
